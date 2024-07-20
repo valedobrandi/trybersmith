@@ -8,6 +8,7 @@ export default function mapStatusHTTP(status: string): number {
     DELETE: 204,
     UNAUTHORIZED: 401,
     BAD_REQUEST: 400,
+    UNPROCESSABLE_ENTITY: 422,
   };
   return statusHTTPMap[status] ?? 500;
 }

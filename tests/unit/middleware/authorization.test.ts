@@ -39,5 +39,4 @@ describe('LoginController', function () {
     expect(nextFunction).not.to.have.been.calledWith()
   });
 
-
 });
