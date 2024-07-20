@@ -4,5 +4,4 @@ export type User = {
   vocation: 'fake';
   level: 'fake';
   password: 'fake';
-  productIds: 'fake';
 };
