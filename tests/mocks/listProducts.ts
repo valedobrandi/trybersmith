@@ -1,4 +1,3 @@
-import { Model } from "sequelize"
 import { Product } from "../../src/types/Product"
 
 
