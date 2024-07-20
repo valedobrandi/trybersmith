@@ -14,6 +14,7 @@ function registerFields(
     }
 
     const fieldsContentError = validation.validateRegisterFieldsContent(req.body);
+    
     if (fieldsContentError) {
       return res.status(mapStatusHTTP(fieldsContentError.status)).json(fieldsContentError.data);
     }

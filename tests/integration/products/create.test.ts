@@ -31,7 +31,7 @@ describe('POST /products', function () {
     const httpResponse = await chai.request(app).post('/products')
     .send(registerProduct);
 
-    expect(httpResponse.status).to.equal(400);
+    expect(httpResponse.status).to.equal(422);
     expect(httpResponse.body).to.be.deep.equal({ message: "\"userId\" not found"})
   } )
 

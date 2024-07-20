@@ -18,7 +18,7 @@ describe('UNIT - MIDDLEWARE Register Fields', function () {
     sinon.restore();
   });
 
-  it('1 - "BAD_REQUEST" when there is no name field ', function () {
+  it('1 - "BAD_REQUEST" there is no name field ', function () {
     req.body = { price: 'AnyPrice', userId: 1 }
 
     registerFields(req, res, nextFunction)
@@ -28,7 +28,7 @@ describe('UNIT - MIDDLEWARE Register Fields', function () {
     expect(nextFunction).not.to.have.been.calledWith()
   });
 
-  it('2 - "BAD_REQUEST" when there is no price field ', function () {
+  it('2 - "BAD_REQUEST" there is no price field ', function () {
     req.body = { name: 'Hagar', userId: 1 }
 
     registerFields(req, res, nextFunction)
@@ -38,13 +38,23 @@ describe('UNIT - MIDDLEWARE Register Fields', function () {
     expect(nextFunction).not.to.have.been.calledWith()
   });
 
-  it('3 - "BAD_REQUEST" when there is no userId field ', function () {
+  it('3 - "BAD_REQUEST" there is no userId field ', function () {
     req.body = { name: 'Hagar', price: 'AnyPrice' }
 
     registerFields(req, res, nextFunction)
 
     expect(res.status).to.have.been.calledWith(400);
     expect(res.json).to.have.been.calledWith({ message: '"userId" is required' });
+    expect(nextFunction).not.to.have.been.calledWith()
+  });
+
+  it('4 - "BAD_REQUEST" UserId is not a number ', function () {
+    req.body = { name: 'Hagar', price: 'AnyPrice', userId: "1" }
+
+    registerFields(req, res, nextFunction)
+
+    expect(res.status).to.have.been.calledWith(422);
+    expect(res.json).to.have.been.calledWith({ message: '"userId" must be a number'  });
     expect(nextFunction).not.to.have.been.calledWith()
   });
 

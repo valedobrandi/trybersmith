@@ -8,16 +8,14 @@ async function register(
   price: string, 
   userId: number,
 ):Promise<ServiceResponse<Product>> {
-  const response = {
-    create: await ProductModel.create({ name, price, userId }),
-    findOne: await UserModel.findOne({ where: { id: userId } }),
-  };
-
-  if (!response.findOne) {
-    return { status: 'BAD_REQUEST', data: { message: '"userId" not found' } };
+  const findUser = await UserModel.findOne({ where: { id: userId } });
+  
+  if (!findUser) {
+    return { status: 'INVALID_VALUE', data: { message: '"userId" not found' } };
   }
+  const response = await ProductModel.create({ name, price, userId });
 
-  return { status: 'CREATED', data: response.create.dataValues };
+  return { status: 'CREATED', data: response.dataValues };
 }
 
 async function findAll(): Promise<ServiceResponse<Product[]>> {
