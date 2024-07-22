@@ -1,0 +1,1 @@
+export const JWT_TOKEN = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkhhZ2FyIiwiaWF0IjoxNzIxNjcyNjYxfQ.fZsieEqmhLStkCv2LNeGiBsWUIyWsKn-uK3U5VuOkSA'

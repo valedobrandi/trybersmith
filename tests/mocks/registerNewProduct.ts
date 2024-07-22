@@ -1,5 +1,3 @@
-import { Model } from "sequelize"
-import { ProductSequelizeModel } from "../../src/database/models/product.model"
 import { Product } from "../../src/types/Product"
 
 export const registerProduct = {

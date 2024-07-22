@@ -12,7 +12,9 @@ function sign(payload: TokenPayload): string {
 }
 
 function verify(token: string): TokenPayload { 
-  const data = jwt.verify(token, secret) as TokenPayload; 
+  const bearer = token.split(' ')[1];
+  const data = jwt.verify(bearer, secret) as TokenPayload; 
+
   return data; 
 }
 

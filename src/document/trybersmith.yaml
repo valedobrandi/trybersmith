@@ -8,6 +8,8 @@ servers:
 paths:
   /users:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - Users
       summary: Recupera todos os usuários.
@@ -42,6 +44,8 @@ paths:
           description: Autenticação falhou.
   /products:
     get:
+      security:
+        - bearerAuth: []
       tags:
         - Products
       summary: Recupera todos os produtos.
@@ -55,6 +59,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Product'
     post:
+      security:
+        - bearerAuth: []
       tags:
         - Products
       summary: Adiciona um novo produto.
@@ -68,6 +74,13 @@ paths:
         '201':
           description: Produto criado.
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  security:
+    - bearerAuth: []
   schemas:
     User:
       type: object
