@@ -7,6 +7,11 @@ import loginRouter from './routers/login.router';
 const app = express();
 
 app.use(express.json());
+
+app.get('/', (_request, response) => {
+  response.sendStatus(200);
+});
+
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
