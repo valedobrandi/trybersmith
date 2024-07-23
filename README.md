@@ -7,9 +7,9 @@ Trybesmith is a Node.js application designed to manage a database of users and p
 ## Table of Contents
 1. [Features](#features)
 2. [Dependencies](#dependencies)
+5. [Docker Usage](#docker-usage)
 3. [Installation](#installation)
 4. [Project Structure](#project-structure)
-5. [Docker Usage](#docker-usage)
 6. [Documentation](#documentation)
 7. [Examples](#examples)
 8. [Testing](#testing)
@@ -36,6 +36,28 @@ Trybesmith is a Node.js application designed to manage a database of users and p
 
 For a complete list, see the `package.json` file
 
+## Docker Usage
+
+The application can be containerized using Docker. The `docker-compose.yml` file defines two services: `app-trybesmith` for the Node.js application and `db` for the MySQL database.
+- **Dockerrize:**
+If 'db' is down run:
+
+  ```sh
+  docker exec -it trybesmith_api bash npm run db:reset
+  ```
+
+- **Build and start the containers:**
+
+  ```sh
+  docker-compose up --build
+  ```
+
+- **Stop the containers:**
+
+  ```sh
+  docker-compose down
+  ```
+  
 ## Installation
 To set up the Trybesmith project on your local machine, follow these steps:
 
@@ -98,21 +120,6 @@ The application requires the following environment variables:
 - `DB_NAME`: Database name.
 - `JWT_SECRET`: Secret key for JWT authentication.
 
-## Docker Usage
-
-The application can be containerized using Docker. The `docker-compose.yml` file defines two services: `app-trybesmith` for the Node.js application and `db` for the MySQL database.
-
-- **Build and start the containers:**
-
-  ```sh
-  docker-compose up --build
-  ```
-
-- **Stop the containers:**
-
-  ```sh
-  docker-compose down
-  ```
 
 ## Documentation
 ### API Endpoints
