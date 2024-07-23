@@ -40,6 +40,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+              example:
+                name: Hagar
+                password: terrível
         '401':
           description: Autenticação falhou.
   /products:
@@ -99,9 +102,9 @@ components:
       type: object
       properties:
         username:
-          type: string
+          type: string 
         password:
-          type: string
+          type: string 
     Product:
       type: object
       properties:
