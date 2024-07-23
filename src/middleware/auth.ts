@@ -10,8 +10,11 @@ async function auth(req: Request, res: Response, next: NextFunction): Promise<Re
       return res.status(mapStatusHTTP('UNAUTHORIZED'))
         .json({ message: 'token required' });
     }
+    
     const user = verify(authorization);
-    const token = await UserModel.findOne({ where: user });
+
+    const token = await UserModel.findOne({ where: { username: user.username } });
+    
     if (!token) {
       return res.status(mapStatusHTTP('UNAUTHORIZED'))
         .json({ message: 'token invalid' });
