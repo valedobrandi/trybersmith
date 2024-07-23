@@ -39,17 +39,16 @@ For a complete list, see the `package.json` file
 ## Docker Usage
 
 The application can be containerized using Docker. The `docker-compose.yml` file defines two services: `app-trybesmith` for the Node.js application and `db` for the MySQL database.
-- **Dockerrize:**
-If 'db' is down run:
-
-  ```sh
-  docker exec -it trybesmith_api bash npm run db:reset
-  ```
 
 - **Build and start the containers:**
 
   ```sh
   docker-compose up --build
+  ```
+- **If 'db' is down:**
+
+  ```sh
+  docker exec -it trybesmith_api bash npm run db:reset
   ```
 
 - **Stop the containers:**
