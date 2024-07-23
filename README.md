@@ -52,7 +52,7 @@ To set up the Trybesmith project on your local machine, follow these steps:
 
 3. **Build and start the Docker containers:**
    ```sh
-   docker-compose up --build
+   docker-compose up -d --build
    ```
 
    The application will be available at `http://localhost:3001/swagger`.
