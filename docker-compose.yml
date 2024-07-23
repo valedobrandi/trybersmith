@@ -15,7 +15,7 @@ services:
     # Mesmo que `docker run -i`
     stdin_open: true
     # Substitui o comando padrão da imagem do node
-    command: npm run dev
+    command: ["sh", "-c", "dockerize -wait tcp://db:3306 -timeout 60s && npm run db:reset && npm run dev"]
     image: trybesmith-api:8.5
     # Restarta a imagem caso algo a faça parar
     restart: always
